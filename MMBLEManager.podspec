@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MMBLEManager'
-  s.version          = '10.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'MMBLEManager and ImageLib'
 
 # This description is used to generate tags and improve search results.
@@ -53,6 +53,9 @@ TODO: Add long description of the pod here.
   # 配置当前库的 bitcode
    s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
    s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64', 'ENABLE_BITCODE' => 'NO' }
+   
+  s.source_files = 'MMBLEManager.framework/Headers/*'
+  s.ios.vendored_frameworks = ['MMBLEManager.framework']
    
   # 配置宿主工程的 bitcode
   #s.user_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }

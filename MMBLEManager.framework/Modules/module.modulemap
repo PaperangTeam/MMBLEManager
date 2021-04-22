@@ -1,0 +1,11 @@
+framework module MMBLEManager {
+  umbrella header "MMBLEManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module MMBLEManager.Swift {
+    header "MMBLEManager-Swift.h"
+    requires objc
+}

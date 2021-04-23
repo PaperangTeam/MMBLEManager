@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MMBLEManager'
-  s.version          = '1.0.4'
+  s.version          = '1.0.5'
   s.summary          = 'MMBLEManager and ImageLib'
 
 # This description is used to generate tags and improve search results.
@@ -60,11 +60,11 @@ TODO: Add long description of the pod here.
   # 配置宿主工程的 bitcode
   #s.user_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
 
-   #s.dependency 'YYCategories'
+   s.dependency 'YYCategories'
 #   s.dependency 'HXLanguageManager'
 #   s.dependency 'WYDatabase'
 #   s.dependency 'MMNetworkManager'
-   #s.dependency 'YYModel'
+   s.dependency 'YYModel'
    #s.dependency 'OpenUDID'
 
 

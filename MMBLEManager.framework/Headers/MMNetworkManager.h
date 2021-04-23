@@ -17,7 +17,7 @@
            completionBlock:(void (^)(NSDictionary *dic))block
               failureBlock:(void (^)(NSInteger code, NSString *description))failureBlock;
 
-- (void)registWithAppID:(long)appId
+- (void)registWithAppID:(long long)appId
                   AppKey:(NSString *)appKey
                andSecret:(NSString *)secret
                  success:(void (^)(void))success

@@ -318,6 +318,8 @@ withFeedline:(BOOL)needFeedline;
 
 //new end
 
+- (void)postNoti:(NSString *)name object:(NSDictionary *)object;
+
 @end
 
 NS_ASSUME_NONNULL_END

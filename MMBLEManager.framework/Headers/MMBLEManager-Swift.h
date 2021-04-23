@@ -572,24 +572,12 @@ typedef SWIFT_ENUM_NAMED(uint8_t, MMDeviceTempStatus, "MMDeviceTempStatus", clos
 
 SWIFT_CLASS("_TtC12MMBLEManager12MMDeviceUrls")
 @interface MMDeviceUrls : NSObject
-/// 获取固件版本
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull getDeviceFirmware;)
-+ (NSString * _Nonnull)getDeviceFirmware SWIFT_WARN_UNUSED_RESULT;
-/// go获取固件版本
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull go_getDeviceFirmware;)
-+ (NSString * _Nonnull)go_getDeviceFirmware SWIFT_WARN_UNUSED_RESULT;
-/// 升级记录
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull addUpdateRecord;)
-+ (NSString * _Nonnull)addUpdateRecord SWIFT_WARN_UNUSED_RESULT;
-/// 升级记录
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull go_addUpdateRecord;)
-+ (NSString * _Nonnull)go_addUpdateRecord SWIFT_WARN_UNUSED_RESULT;
 /// 设备登录
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull deviceLogin;)
 + (NSString * _Nonnull)deviceLogin SWIFT_WARN_UNUSED_RESULT;
-/// 接口设备登录
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull go_deviceLogin;)
-+ (NSString * _Nonnull)go_deviceLogin SWIFT_WARN_UNUSED_RESULT;
+/// 设备登录
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull deviceNewLogin;)
++ (NSString * _Nonnull)deviceNewLogin SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull kUrl_api_oauth_token;)
 + (NSString * _Nonnull)kUrl_api_oauth_token SWIFT_WARN_UNUSED_RESULT;
 /// 设备蓝牙名称
@@ -1498,24 +1486,12 @@ typedef SWIFT_ENUM_NAMED(uint8_t, MMDeviceTempStatus, "MMDeviceTempStatus", clos
 
 SWIFT_CLASS("_TtC12MMBLEManager12MMDeviceUrls")
 @interface MMDeviceUrls : NSObject
-/// 获取固件版本
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull getDeviceFirmware;)
-+ (NSString * _Nonnull)getDeviceFirmware SWIFT_WARN_UNUSED_RESULT;
-/// go获取固件版本
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull go_getDeviceFirmware;)
-+ (NSString * _Nonnull)go_getDeviceFirmware SWIFT_WARN_UNUSED_RESULT;
-/// 升级记录
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull addUpdateRecord;)
-+ (NSString * _Nonnull)addUpdateRecord SWIFT_WARN_UNUSED_RESULT;
-/// 升级记录
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull go_addUpdateRecord;)
-+ (NSString * _Nonnull)go_addUpdateRecord SWIFT_WARN_UNUSED_RESULT;
 /// 设备登录
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull deviceLogin;)
 + (NSString * _Nonnull)deviceLogin SWIFT_WARN_UNUSED_RESULT;
-/// 接口设备登录
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull go_deviceLogin;)
-+ (NSString * _Nonnull)go_deviceLogin SWIFT_WARN_UNUSED_RESULT;
+/// 设备登录
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull deviceNewLogin;)
++ (NSString * _Nonnull)deviceNewLogin SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull kUrl_api_oauth_token;)
 + (NSString * _Nonnull)kUrl_api_oauth_token SWIFT_WARN_UNUSED_RESULT;
 /// 设备蓝牙名称

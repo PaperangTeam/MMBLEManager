@@ -72,6 +72,8 @@
 #import "MMNetworkManager.h"
 #import "NSString+MMCategory.h"
 #import "MMPrintCompressTool.h"
+#import "NSObject+YYAddForARC.h"
+#import "NSThread+YYAdd.h"
 
 FOUNDATION_EXPORT double MMBLEManagerVersionNumber;
 FOUNDATION_EXPORT const unsigned char MMBLEManagerVersionString[];

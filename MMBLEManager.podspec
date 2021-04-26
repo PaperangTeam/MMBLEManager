@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MMBLEManager'
-  s.version          = '1.0.12'
+  s.version          = '1.0.13'
   s.summary          = 'MMBLEManager and ImageLib'
 
 # This description is used to generate tags and improve search results.

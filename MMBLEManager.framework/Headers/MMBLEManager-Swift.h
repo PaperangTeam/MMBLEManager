@@ -403,6 +403,25 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)getDeviceSuportSizeNotificationName SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class NSCoder;
+
+SWIFT_CLASS_NAMED("MMBLESupportSizeModel")
+@interface MMBLESupportSizeModel : NSObject
+- (void)encodeWith:(NSCoder * _Nonnull)coder;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+/// 纸宽
+@property (nonatomic) NSInteger paperWidth;
+/// 图片宽.  默认 -1 自动计算
+@property (nonatomic) NSInteger imageWidth;
+/// 左侧偏移, 默认 -1 自动计算
+@property (nonatomic) NSInteger offset;
+/// 块大小, 用于计算 printWidth  = imageWidth / piece
+@property (nonatomic) NSInteger piece;
+/// 是否需要根据 imageWidth 计算 printWidth
+@property (nonatomic, readonly) BOOL needCalPrintWidth;
+@end
+
 typedef SWIFT_ENUM_NAMED(NSInteger, MMBLEUpgradeStartResult, "MMBLEUpgradeStartResult", closed) {
   MMBLEUpgradeStartResultSuccess = 0,
   MMBLEUpgradeStartResultFaild = 1,
@@ -615,11 +634,15 @@ SWIFT_CLASS("_TtC12MMBLEManager21MMThermalDeviceHandle")
 @interface MMThermalDeviceHandle : NSObject
 @property (nonatomic, copy) void (^ _Nullable updateCreditClosure)(NSInteger);
 @property (nonatomic) NSInteger maxWidth;
+/// 图片偏移量, 这个值只有在设备传递过来选纸的时候复制, 默认 -1 走自动计算
+@property (nonatomic) NSInteger offset;
+/// C1S 部分旧设备从机器中读取为纯数字的尺寸, 在 2021年04月27日 这附近进行了调整, 从设备中读取出来的是 json
+@property (nonatomic) BOOL isNewSupportSize;
 @property (nonatomic) NSInteger printWidth;
 @property (nonatomic) NSInteger imageWidth;
 @property (nonatomic) NSInteger mtu;
 @property (nonatomic) NSInteger credit;
-@property (nonatomic) NSInteger packageLength;
+@property (nonatomic, readonly) NSInteger packageLength;
 @property (nonatomic, strong) CBCharacteristic * _Nullable writeC;
 @property (nonatomic, strong) CBCharacteristic * _Nullable mcuNotifyC;
 @property (nonatomic, strong) CBCharacteristic * _Nullable btNotifyC;
@@ -1317,6 +1340,25 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)getDeviceSuportSizeNotificationName SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class NSCoder;
+
+SWIFT_CLASS_NAMED("MMBLESupportSizeModel")
+@interface MMBLESupportSizeModel : NSObject
+- (void)encodeWith:(NSCoder * _Nonnull)coder;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+/// 纸宽
+@property (nonatomic) NSInteger paperWidth;
+/// 图片宽.  默认 -1 自动计算
+@property (nonatomic) NSInteger imageWidth;
+/// 左侧偏移, 默认 -1 自动计算
+@property (nonatomic) NSInteger offset;
+/// 块大小, 用于计算 printWidth  = imageWidth / piece
+@property (nonatomic) NSInteger piece;
+/// 是否需要根据 imageWidth 计算 printWidth
+@property (nonatomic, readonly) BOOL needCalPrintWidth;
+@end
+
 typedef SWIFT_ENUM_NAMED(NSInteger, MMBLEUpgradeStartResult, "MMBLEUpgradeStartResult", closed) {
   MMBLEUpgradeStartResultSuccess = 0,
   MMBLEUpgradeStartResultFaild = 1,
@@ -1529,11 +1571,15 @@ SWIFT_CLASS("_TtC12MMBLEManager21MMThermalDeviceHandle")
 @interface MMThermalDeviceHandle : NSObject
 @property (nonatomic, copy) void (^ _Nullable updateCreditClosure)(NSInteger);
 @property (nonatomic) NSInteger maxWidth;
+/// 图片偏移量, 这个值只有在设备传递过来选纸的时候复制, 默认 -1 走自动计算
+@property (nonatomic) NSInteger offset;
+/// C1S 部分旧设备从机器中读取为纯数字的尺寸, 在 2021年04月27日 这附近进行了调整, 从设备中读取出来的是 json
+@property (nonatomic) BOOL isNewSupportSize;
 @property (nonatomic) NSInteger printWidth;
 @property (nonatomic) NSInteger imageWidth;
 @property (nonatomic) NSInteger mtu;
 @property (nonatomic) NSInteger credit;
-@property (nonatomic) NSInteger packageLength;
+@property (nonatomic, readonly) NSInteger packageLength;
 @property (nonatomic, strong) CBCharacteristic * _Nullable writeC;
 @property (nonatomic, strong) CBCharacteristic * _Nullable mcuNotifyC;
 @property (nonatomic, strong) CBCharacteristic * _Nullable btNotifyC;

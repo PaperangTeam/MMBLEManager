@@ -1,0 +1,457 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 effective-4.1.50 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target armv7-apple-ios8.0 -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -module-name MMBLEManager
+import CommonCrypto
+import Foundation
+@_exported import MMBLEManager
+import Swift
+import UIKit
+@objc @_hasMissingDesignatedInitializers @objcMembers public class MMCloudTypeValueConfig : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(MMCloudConnectWifiResult) public enum MMCloudConnectWifiResult : Swift.UInt8 {
+  case success = 0x01, otherError = 0x02, passwordError = 0x03
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+@objc(MMCloudWifiStatus) public enum MMCloudWifiStatus : Swift.UInt8 {
+  case idle = 0x00, connecting, connectFaild, passError, connectSuccess = 0x04, disConnect = 0x05, wifiOpen, wifiClose
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+@objc(MMCloudNetworkPortStatus) public enum MMCloudNetworkPortStatus : Swift.UInt8 {
+  case unConnect = 0x00, connecting = 0x01, connected = 0x02
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+@objc(MMCloudServerStatus) public enum MMCloudServerStatus : Swift.UInt8 {
+  case unConnect = 0x00, connecting = 0x01, connected = 0x02
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MMBLEStrings : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension MMBLEStrings {
+  @objc public static let deviceTypeX2: Swift.String
+  @objc public static let deviceTypeT1: Swift.String
+  @objc public static let deviceTypeP1L: Swift.String
+  @objc public static let deviceTypeP2: Swift.String
+  @objc public static let deviceTypeD1: Swift.String
+  @objc public static let deviceTypeC1: Swift.String
+  @objc public static let deviceTypeP2S: Swift.String
+  @objc public static let deviceTypeP1S: Swift.String
+  @objc public static let deviceTypeBS1: Swift.String
+  @objc public static let deviceTypeP3: Swift.String
+}
+extension MMBLEStrings {
+  @objc public static let getSNNotificationName: Swift.String
+  @objc public static let getBtVersionNotificationName: Swift.String
+  @objc public static let getFirmVersionNotificationName: Swift.String
+  @objc public static let getDeviceTypeNotificationName: Swift.String
+  @objc public static let getDelegateVersionNotificationName: Swift.String
+  @objc public static let getBindDataNotificationName: Swift.String
+  @objc public static let willConnectCloudDeviceDisconnectNotificationName: Swift.String
+  @objc public static let gotoConfigCloudNetworkNotificationName: Swift.String
+  @objc public static let getCloudDeviceInfoNotificationName: Swift.String
+  @objc public static let changeBindDataNotificationName: Swift.String
+  @objc public static let closeBTNotificationName: Swift.String
+  @objc public static let getWifiListNotificationName: Swift.String
+  @objc public static let connectWifiResultNotificationName: Swift.String
+  @objc public static let getWifiStatusNotificationName: Swift.String
+  @objc public static let getNetworkPortStatusNotificationName: Swift.String
+  @objc public static let getServerStatusNotificationName: Swift.String
+  @objc public static let submitConnectedServerNotificationName: Swift.String
+  @objc public static let changeUsingDeviceNotificationName: Swift.String
+  @objc public static let verifyFaildNotificationName: Swift.String
+  @objc public static let verifySuccessNotificationName: Swift.String
+  @objc public static let upgradeDeviceNotificationName: Swift.String
+  @objc public static let getDeviceSuportSizeNotificationName: Swift.String
+}
+extension MMBLEStrings {
+  @objc public static let changeSNResultNotificationName: Swift.String
+  @objc public static let getDeviceNameNotificationName: Swift.String
+  @objc public static let changeDeviceNameNotificationName: Swift.String
+  @objc public static let getPowerOffTimeNotificationName: Swift.String
+  @objc public static let changePowerOffTimeNotificationName: Swift.String
+  @objc public static let getBatterNotificationName: Swift.String
+  @objc public static let getVolNotificationName: Swift.String
+  @objc public static let getPutVolNotificationName: Swift.String
+  @objc public static let getTempNotificationName: Swift.String
+  @objc public static let getPutTempNotificationName: Swift.String
+  @objc public static let resetNotificationName: Swift.String
+  @objc public static let sleepNotificationName: Swift.String
+  @objc public static let powerOffNotificationName: Swift.String
+  @objc public static let setCrcKeyNotificationName: Swift.String
+  @objc public static let setDeviceKeyNotificationName: Swift.String
+  @objc public static let miaomiaojiVerifyFaildNotificationName: Swift.String
+  @objc public static let needUpgradeBleDeviceNotificationName: Swift.String
+  @objc public static let updatePackageNotificationName: Swift.String
+  @objc public static let updateDeviceSuccessNotificationName: Swift.String
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MMBLENotificationModel : ObjectiveC.NSObject {
+  @objc public var notificationName: Swift.String?
+  @objc public var isSuccess: Swift.Bool
+  @objc public var otherInfo: [Swift.String : Any]?
+  @objc public var target: MMBLEManager.MMDeviceDelegate?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objcMembers @objc(MMBLESupportSizeModel) final public class MMBLESupportSizeModel : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public func encode(with coder: Foundation.NSCoder)
+  @objc required public init?(coder: Foundation.NSCoder)
+  @objc override dynamic public init()
+  @objc final public var paperWidth: Swift.Int
+  @objc final public var imageWidth: Swift.Int
+  @objc final public var offset: Swift.Int
+  @objc final public var piece: Swift.Int
+  @objc final public var needCalPrintWidth: Swift.Bool {
+    @objc get
+  }
+  @objc deinit
+  final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MMBLEGCD : ObjectiveC.NSObject {
+  @objc public static func onMainAsync(_ closure: @escaping () -> (), delay: Swift.Double = 0)
+  @objc public static func onGlobalAsync(_ closure: @escaping () -> ())
+  @objc public static func mmPostNotification(_ name: Swift.String, _ obj: Any? = nil, _ userInfo: [Swift.String : Any]? = nil)
+  @objc public static func mmPostNotification(_ model: MMBLEManager.MMBLENotificationModel)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @objcMembers public class MMCloudDelegate : MMBLEManager.MMDeviceDelegate {
+  @objc public var isOnline: Swift.Bool
+  @objc public var printStatus: Swift.Bool
+  @objc public var isShared: Swift.Bool
+  @objc public var shareUserNickName: Swift.String?
+  @objc public var printerName: Swift.String?
+  @objc public var selectDate: Swift.String?
+  @objc public var needUpgrade: Swift.Bool
+  @objc public var printerList: [Any]?
+  @objc override dynamic public init()
+  @objc override dynamic public init(deviceModel model: MMBLEManager.MMBluetoothDeviceModel)
+  @objc deinit
+}
+extension MMCloudDelegate {
+  @objc dynamic public func disconnectMe()
+  @objc dynamic public func handleDisconnect()
+}
+extension MMCloudDelegate {
+  @objc dynamic public func canPrintImage() -> Swift.Bool
+  @objc dynamic public func printImage(image: UIKit.UIImage?, count: Swift.Int) -> Swift.Bool
+  @objc dynamic public func requestServerStatus()
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MMCloudUnpackModel : ObjectiveC.NSObject {
+  @objc public static func isThermalSNData(rawData: Foundation.Data?) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @objcMembers public class MMCloudWifiModel : ObjectiveC.NSObject {
+  @objc public var rssi: Swift.Int
+  @objc public var flags: Swift.Bool
+  @objc public var ssid: Swift.String?
+  @objc public init(rssi: Swift.Int, flags: Swift.Bool, ssid: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MMConfig : ObjectiveC.NSObject {
+  @objc public static let shared: MMBLEManager.MMConfig
+  @objc public var isAllowUpgradeWhenEqual: Swift.Bool
+  @objc public var didUpdateSuccessBlock: (() -> ())?
+  @objc public var goApi: Swift.Bool
+  @objc public var deviceStatusChange: ((MMBLEManager.MMDeviceTempStatus, MMBLEManager.MMDevicePaperStatus, MMBLEManager.MMDeviceCoverStatus) -> ())?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(MMDeviceTempStatus) public enum MMDeviceTempStatus : Swift.UInt8 {
+  case normal, high
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+@objc(MMDevicePaperStatus) public enum MMDevicePaperStatus : Swift.UInt8 {
+  case normal, lack
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+@objc(MMDeviceCoverStatus) public enum MMDeviceCoverStatus : Swift.UInt8 {
+  case normal, open
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MMDeviceNetwork : ObjectiveC.NSObject {
+  @objc public static func dd()
+  @objc public static func post(request: Swift.String?, para: Foundation.NSDictionary?, completion: ((Swift.Bool, Any?, Swift.String?, Swift.Bool) -> ())?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MMDeviceUrls : ObjectiveC.NSObject {
+  @objc public static let deviceLogin: Swift.String
+  @objc public static let deviceNewLogin: Swift.String
+  @objc public static let kUrl_api_oauth_token: Swift.String
+  @objc public static let kUrl_api_device_names: Swift.String
+  @objc public static let kUrl_api_config_geturlbyname: Swift.String
+  @objc public static let kUrl_api_device_firmware: Swift.String
+  @objc public static let kUrl_api_device_updatefirmware: Swift.String
+  @objc public static let kUrl_api_device_login: Swift.String
+  @objc public static let kUrl_api_device_print: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MMLog : ObjectiveC.NSObject {
+  @objc public static func showLog(msg: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct PrintConfig {
+}
+public struct CompressConfig {
+}
+public struct LoadFileConfig {
+}
+extension MMThermalDeviceHandle {
+  @objc dynamic public func packGetSN() -> [Foundation.Data]?
+  @objc dynamic public func packGetDeviceRandomCode() -> [Foundation.Data]?
+}
+extension MMThermalDeviceHandle {
+  @objc dynamic public func packGetPowerOffTime() -> [Foundation.Data]?
+  @objc dynamic public func packChangePowerOffTime(second: Swift.Int) -> [Foundation.Data]?
+  @objc dynamic public func packGetBattery() -> [Foundation.Data]?
+  @objc dynamic public func packReset() -> [Foundation.Data]?
+  @objc dynamic public func packTestPage() -> [Foundation.Data]?
+  @objc dynamic public func packSetSense(_ sense: Swift.UInt32) -> [Foundation.Data]?
+  @objc dynamic public func packSetVelocity(_ velocity: Swift.UInt16) -> [Foundation.Data]?
+  @objc dynamic public func packSetDensity(_ density: Swift.UInt8) -> [Foundation.Data]?
+  @objc dynamic public func packFeedline(_ len: Swift.UInt16) -> [Foundation.Data]?
+  @objc dynamic public func gapLocate(_ maxLength: Swift.UInt32) -> [Foundation.Data]?
+  @objc dynamic public func packBinaryTree(_ data: Foundation.Data) -> [Foundation.Data]
+  public func compressData(_ oriData: Foundation.Data, _ config: MMBLEManager.CompressConfig) -> [Foundation.Data]?
+  @objc dynamic public func packStartPrint() -> [Foundation.Data]?
+  @objc dynamic public func packPrintData(_ data: Foundation.Data, _ isCompress: Swift.UInt8, _ feedLine: Swift.Bool, _ type: MMBLEManager.PrintPaperType, _ block: ((MMBLEManager.MMDeviceManagerOpModel) -> Swift.Void)) -> [Foundation.Data]?
+  @objc dynamic public func packImageData(_ data: Foundation.Data, _ isCompress: Swift.UInt8) -> [Foundation.Data]
+}
+extension MMThermalDeviceHandle {
+  @objc dynamic public func packGetClockInfo() -> [Foundation.Data]?
+  @objc dynamic public func packGetClock() -> [Foundation.Data]?
+  @objc dynamic public func packSetClock(_ clock: Foundation.Data) -> [Foundation.Data]?
+  @objc dynamic public func packGetClockFormat() -> [Foundation.Data]?
+  @objc dynamic public func packSetClockFormat(_ format: Swift.UInt8) -> [Foundation.Data]?
+  @objc dynamic public func packGetTurnoffTime() -> [Foundation.Data]?
+  @objc dynamic public func packSetTurnoffTime(_ interval: Swift.UInt32) -> [Foundation.Data]?
+  @objc dynamic public func packSetAlarm(_ alarm: [Foundation.Data]) -> [Foundation.Data]?
+  @objc dynamic public func packDelAlarm(_ alarmId: Swift.UInt32) -> [Foundation.Data]?
+  @objc dynamic public func packGetAlarms() -> [Foundation.Data]?
+  @objc dynamic public func packGetSleepAlarms() -> [Foundation.Data]?
+  @objc dynamic public func packSetSleepAlarm(_ alarm: Swift.UInt8) -> [Foundation.Data]?
+  @objc dynamic public func packGetTomatoClock() -> [Foundation.Data]?
+  @objc dynamic public func packSetTomatoClock(_ tomatoClock: Foundation.Data) -> [Foundation.Data]?
+  @objc dynamic public func packGetTomatoCount() -> [Foundation.Data]?
+  @objc dynamic public func packGetAlarmTone() -> [Foundation.Data]?
+  @objc dynamic public func packSetAlarmTone(_ tone: [Foundation.Data]) -> [Foundation.Data]?
+  @objc dynamic public func packGetAlarmNote() -> [Foundation.Data]?
+  @objc dynamic public func packSetAlarmNote(_ note: [Foundation.Data]) -> [Foundation.Data]?
+}
+extension MMThermalDeviceHandle {
+  @objc dynamic public func unpack(_ data: Foundation.Data)
+}
+@objc @objcMembers public class MMThermalDeviceHandle : ObjectiveC.NSObject {
+  @objc public var updateCreditClosure: ((Swift.Int) -> Swift.Void)?
+  @objc public var maxWidth: Swift.Int
+  @objc public var offset: Swift.Int
+  @objc public var isNewSupportSize: Swift.Bool
+  @objc public var printWidth: Swift.Int
+  @objc public var imageWidth: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc public var mtu: Swift.Int
+  @objc public var credit: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc public var packageLength: Swift.Int {
+    get
+  }
+  @objc public var writeC: CoreBluetooth.CBCharacteristic?
+  @objc public var mcuNotifyC: CoreBluetooth.CBCharacteristic?
+  @objc public var btNotifyC: CoreBluetooth.CBCharacteristic?
+  @objc deinit
+  @objc public func updateBuffCredit(_ credit: Swift.Int)
+  @objc public var peripheral: CoreBluetooth.CBPeripheral?
+  @objc public var needVerify: Swift.Bool
+  @objc public init(target: MMBLEManager.MMDeviceDelegate?)
+  @objc public func disposalData(_ data: Foundation.Data?) -> [Any]
+  @objc public func unpackBTData(_ data: Foundation.Data?)
+  @objc public func disconnectMe()
+  @objc public func handleDisconnect()
+  @objc public func handleVerifyFinish()
+  @objc public func thermalGetIdle()
+  @objc public func loadAlarmNote(_ data: Foundation.Data)
+  @objc public func loadTomatoNote(_ data: Foundation.Data)
+  @objc public func update(data: Foundation.Data?)
+  @objc public func updateTarget()
+  @objc override dynamic public init()
+}
+extension MMThermalDeviceHandle : CoreBluetooth.CBPeripheralDelegate {
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverServices error: Swift.Error?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverCharacteristicsFor service: CoreBluetooth.CBService, error: Swift.Error?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didUpdateValueFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+}
+extension MMThermalDeviceHandle {
+  @objc dynamic public func sendDatas(datas: [Foundation.Data]?, isImage: Swift.Bool)
+  @objc dynamic public func connectWifi(ssid: Swift.String, password: Swift.String) -> Swift.Bool
+  @objc dynamic public func queryWifiList() -> Swift.Bool
+  @objc dynamic public func checkNetworkStatus() -> Swift.Bool
+  @objc dynamic public func checkServerStatus() -> Swift.Bool
+  @objc dynamic public func closeBT() -> Swift.Bool
+  @objc dynamic public func changeSN(sn: Swift.String?) -> Swift.Bool
+  @objc dynamic public func getDeviceName() -> Swift.Bool
+  @objc dynamic public func changeDeviceName(newName: Swift.String?) -> Swift.Bool
+  @objc dynamic public func getPowerOffTime() -> Swift.Bool
+  @objc dynamic public func changePowerOffTime(second: Swift.Int) -> Swift.Bool
+  @objc dynamic public func getBattery() -> Swift.Bool
+  @objc dynamic public func getVol() -> Swift.Bool
+  @objc dynamic public func getTemp() -> Swift.Bool
+  @objc dynamic public func reset() -> Swift.Bool
+  @objc dynamic public func sleep() -> Swift.Bool
+  @objc dynamic public func powerOff() -> Swift.Bool
+  @objc dynamic public func changeCrcKey(newCrcKey: Swift.UInt32) -> Swift.Bool
+  @objc dynamic public func changeDeviceKey(keyData: Foundation.Data?) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class MMThermalManager : ObjectiveC.NSObject {
+  @objc public static let shared: MMBLEManager.MMThermalManager
+  @objc public var upgradeStatus: MMBLEManager.MMBLEUpgradeStatus
+  @objc public var upgradeDeviceIdentifier: Swift.String?
+  @objc public var updateType: MMBLEManager.MMUpdateType
+  @objc public var upgradeProgress: Swift.Double
+  @objc public func beginUpdateVersion(withCompletion completion: ((MMBLEManager.MMBLEUpgradeStartResult) -> ())?)
+  @objc deinit
+}
+extension MMThermalManager : Foundation.URLSessionDownloadDelegate {
+  @objc dynamic public func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didFinishDownloadingTo location: Foundation.URL)
+  @objc dynamic public func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didWriteData bytesWritten: Swift.Int64, totalBytesWritten: Swift.Int64, totalBytesExpectedToWrite: Swift.Int64)
+  @objc dynamic public func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didResumeAtOffset fileOffset: Swift.Int64, expectedTotalBytes: Swift.Int64)
+}
+@objc(MMUpdateType) public enum MMUpdateType : Swift.Int {
+  case none, firm, bluetooth
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(MMBLEUpgradeStartResult) public enum MMBLEUpgradeStartResult : Swift.Int {
+  case success
+  case faild
+  case unConnectDevice
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(MMBLEUpgradeStatus) public enum MMBLEUpgradeStatus : Swift.Int {
+  case none
+  case downloadData
+  case installData
+  case restart
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MMUseManager : ObjectiveC.NSObject {
+  @objc public static let shared: MMBLEManager.MMUseManager
+  @objc override dynamic public init()
+  @objc public var cloudIdentifiers: [Swift.String] {
+    @objc get
+    @objc set
+  }
+  @objc public var usingDevice: Any?
+  @objc public var willConnectCloudDevice: MMBLEManager.MMCloudDelegate?
+  @objc public var useEnableDeviceNames: [Swift.String] {
+    @objc get
+    @objc set
+  }
+  @objc public func configUseEnableName(deviceNames: [Swift.String]?)
+  @objc public func isUseEnable(deviceName: Swift.String) -> Swift.Bool
+  @objc public func clearCache()
+  @objc public func use(device: ObjectiveC.NSObject)
+  @objc public func disconnectWillCloudDevice()
+  @objc public func queryWifiList() -> Swift.Bool
+  @objc public func checkNetworkPortStatus() -> Swift.Bool
+  @objc public func checkServerStatus() -> Swift.Bool
+  @objc public func closeBT() -> Swift.Bool
+  @objc public func connnectWifi(ssid: Swift.String, password: Swift.String) -> Swift.Bool
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MMUsingDevice : ObjectiveC.NSObject {
+  @objc public var snCode: Swift.String?
+  @objc public var deviceType: Swift.String?
+  @objc public var deviceName: Swift.String?
+  public var lasTime: Swift.Double?
+  @objc public var identifier: Swift.String?
+  @objc public var alias: Swift.String?
+  @objc public var printerName: Swift.String?
+  @objc override dynamic public init()
+  @objc public static func create(model: MMBLEManager.MMBluetoothDeviceModel, printerName: Swift.String) -> MMBLEManager.MMUsingDevice
+  @objc public init(snCode: Swift.String, deviceType: Swift.String, deviceName: Swift.String, lasTime: Swift.Double, identifier: Swift.String, alias: Swift.String, printerName: Swift.String)
+  @objc public static func current() -> MMBLEManager.MMUsingDevice?
+  @objc public static func clear()
+  @objc public func saveOrUpdate()
+  @objc deinit
+}
+extension MMBLEManager.MMCloudConnectWifiResult : Swift.Equatable {}
+extension MMBLEManager.MMCloudConnectWifiResult : Swift.Hashable {}
+extension MMBLEManager.MMCloudConnectWifiResult : Swift.RawRepresentable {}
+extension MMBLEManager.MMCloudWifiStatus : Swift.Equatable {}
+extension MMBLEManager.MMCloudWifiStatus : Swift.Hashable {}
+extension MMBLEManager.MMCloudWifiStatus : Swift.RawRepresentable {}
+extension MMBLEManager.MMCloudNetworkPortStatus : Swift.Equatable {}
+extension MMBLEManager.MMCloudNetworkPortStatus : Swift.Hashable {}
+extension MMBLEManager.MMCloudNetworkPortStatus : Swift.RawRepresentable {}
+extension MMBLEManager.MMCloudServerStatus : Swift.Equatable {}
+extension MMBLEManager.MMCloudServerStatus : Swift.Hashable {}
+extension MMBLEManager.MMCloudServerStatus : Swift.RawRepresentable {}
+extension MMBLEManager.MMDeviceTempStatus : Swift.Equatable {}
+extension MMBLEManager.MMDeviceTempStatus : Swift.Hashable {}
+extension MMBLEManager.MMDeviceTempStatus : Swift.RawRepresentable {}
+extension MMBLEManager.MMDevicePaperStatus : Swift.Equatable {}
+extension MMBLEManager.MMDevicePaperStatus : Swift.Hashable {}
+extension MMBLEManager.MMDevicePaperStatus : Swift.RawRepresentable {}
+extension MMBLEManager.MMDeviceCoverStatus : Swift.Equatable {}
+extension MMBLEManager.MMDeviceCoverStatus : Swift.Hashable {}
+extension MMBLEManager.MMDeviceCoverStatus : Swift.RawRepresentable {}
+extension MMBLEManager.MMUpdateType : Swift.Equatable {}
+extension MMBLEManager.MMUpdateType : Swift.Hashable {}
+extension MMBLEManager.MMUpdateType : Swift.RawRepresentable {}
+extension MMBLEManager.MMBLEUpgradeStartResult : Swift.Equatable {}
+extension MMBLEManager.MMBLEUpgradeStartResult : Swift.Hashable {}
+extension MMBLEManager.MMBLEUpgradeStartResult : Swift.RawRepresentable {}
+extension MMBLEManager.MMBLEUpgradeStatus : Swift.Equatable {}
+extension MMBLEManager.MMBLEUpgradeStatus : Swift.Hashable {}
+extension MMBLEManager.MMBLEUpgradeStatus : Swift.RawRepresentable {}
